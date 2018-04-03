@@ -1,6 +1,7 @@
 class Api::CoinsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_coin, only: [:show, :update, :destroy]
+  before_action :set_coin, only: [:update, :destroy]
+  #only need update and destroy, because when showing coin, it doesn't need to talk to db,
   BASE_URL = 'https://api.coinmarketcap.com/v1/ticker/'
 
   def index
@@ -15,7 +16,8 @@ class Api::CoinsController < ApplicationController
   end
 
   def show
-    render json: @coin
+    res = HTTParty get("#{BASE_URL}#{params[:id]}")
+    render json: res[0]
   end
 
   def create

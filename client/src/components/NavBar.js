@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Header } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 
 class NavBar extends Component {
+
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
 
@@ -33,6 +34,7 @@ class NavBar extends Component {
   render() {
     return (
       <div>
+        <Header as="h1" className="ui center aligned icon huge header text-center" style={{aligned: 'center'}}>CryptoTicker</Header>
         <Menu pointing secondary>
           <Link to='/'>
             <Menu.Item name='home' />

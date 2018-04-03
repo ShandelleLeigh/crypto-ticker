@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, Divider } from 'react';
 import CoinForm from './CoinForm';
 import CoinList from './CoinList';
+
 
 // class Home extends Component {
 //   render() {
@@ -24,6 +25,7 @@ import CoinList from './CoinList';
 
 const Home = () => (
   <Fragment>
+    <br/>
     <CoinForm />
     <CoinList />
   </Fragment>
